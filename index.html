@@ -1,6 +1,84 @@
- <!DOCTYPE html> 
-<html> 
-<head> 
-   Prototype Placeholder 
-</head> 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartWardrobe | Your AI Stylist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight text-indigo-600">SmartWardrobe</span>
+            <div class="flex space-x-4">
+                <button onclick="showSection('home')" class="text-sm font-medium hover:text-indigo-600">Home</button>
+                <button onclick="showSection('closet')" class="text-sm font-medium hover:text-indigo-600">Closet</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-md mx-auto px-4 py-8">
+        
+        <section id="home-section" class="space-y-6">
+            <header class="text-center">
+                <h1 class="text-4xl font-bold mb-2">Ready to Shine?</h1>
+                <p class="text-slate-500">Tell me the vibe, and I'll find the perfect look.</p>
+            </header>
+
+            <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Where are you going?</label>
+                    <select id="occasion" class="w-full p-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-indigo-500">
+                        <option value="work">The Office</option>
+                        <option value="date">Date Night</option>
+                        <option value="brunch">Sunday Brunch</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-semibold mb-2">What's the weather?</label>
+                    <select id="weather" class="w-full p-3 bg-slate-50 border-none rounded-xl focus:ring-2 focus:ring-indigo-500">
+                        <option value="hot">Sunny & Hot</option>
+                        <option value="cold">Chilly / Cold</option>
+                        <option value="rainy">Rainy</option>
+                    </select>
+                </div>
+
+                <button onclick="generateOutfit()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                    Curate My Look
+                </button>
+            </div>
+        </section>
+
+        <section id="closet-section" class="hidden space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold">My Digital Closet</h2>
+                <button class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm">+ Add Item</button>
+            </div>
+            
+            <div class="text-center py-12 border-2 border-dashed border-slate-200 rounded-3xl">
+                <p class="text-slate-400">Your closet is empty. Start adding your favorite pieces!</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Simple logic to switch between sections
+        function showSection(sectionId) {
+            document.getElementById('home-section').classList.toggle('hidden', sectionId !== 'home');
+            document.getElementById('closet-section').classList.toggle('hidden', sectionId !== 'closet');
+        }
+
+        function generateOutfit() {
+            alert('Stylist Engine is coming in Step 2!');
+        }
+    </script>
+</body>
+</html>
